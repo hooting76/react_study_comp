@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+.hidden{text-indent: -99999em; position: absolute; font-size: 0; line-height: 0;}
+a{color: #222328; text-decoration: none;}
+ul{list-style: none;}
+body{font-family: Arial, sans-serif;}
+
+#wrap{width: 1200px; height:700px; margin: 50px auto;}
+#header{width: 100%; height: 100px;  display: flex; justify-content: space-between;}
+#banner{width: 100%; height: 300px; background: #eee;}
+#contents{width: 100%; height: 200px; background: #ccc;}
+#footer{width: 100%; height: 100px; background: #eee;}
+
+.nav{ margin-top: 50px; position: relative; z-index: 9999;}
+.nav > ul{display: flex;}
+.nav > ul > li{width: 150px; text-align: center;}
+.nav > ul > li > a{padding: 12px 0; display: block; font-size: 1.2em; font-weight: bold; transition:  .3s;  }
+.nav > ul > li:hover > a{background: rgb(230, 32, 32); color: #fff}
+.nav > ul > li > ul{background: rgb(255, 253, 253); display: none; box-shadow: 5px 5px 5px #222;}
+.nav > ul > li > ul > li{height: 40px; line-height: 40px;}
+.nav > ul > li > ul > li > a{display: block; transition:  .3s;}
+.nav > ul > li > ul > li:hover > a{background: rgb(231, 153, 153);}
+
+
+.banner ul{width: 100%; height: 100%; position: relative; overflow: hidden;}
+.banner ul li{position: absolute;top: 100%; left: 0; width: 100%; height: 100%;}
+.banner ul li:first-child{top:0}
+
+.content{display: flex;}
+.content>div{width: 400px}
+.content1{padding: 10px;}
+.tabs .tab{display: flex;}
+.tabs .tab li a{display: block; padding: 5px 0; text-align: center; width: 100px; font-weight: bold; border: 1px solid  rgb(207, 31, 31);}
+.tabs .tab li a.active{background: rgb(207, 31, 31); color: #fff}
+.tabs .tabContent{width: 380px; height: 150px; background: #fff; padding: 10px; position: relative;}
+.tabs .tabContent>div{background: #ffffff; position: absolute; width: 100%;height: 100%; top: 0; left: 0; display: none;}
+.tabs .tabContent>div:first-child{display: block;}
+.tabs .tabContent .notice{padding: 10px;}
+.tabs .tabContent .notice ul li{display: flex; justify-content: space-between; line-height: 160%;}
+.tabs .tabContent .notice ul li a{font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.tabs .tabContent .notice ul li span{font-size: 12px;white-space: nowrap;}
+.tabs .tabContent .gallery{ padding: 20px}
+.tabs .tabContent .gallery ul{display: flex; justify-content: space-between;}
+.tabs .tabContent .gallery ul li{width: 100px; height: 110px; background: red;}
+.tabs .tabContent .gallery ul li:nth-child(1){background: url(../img/00284546-04.jpg) no-repeat center center/cover;}
+.tabs .tabContent .gallery ul li:nth-child(2){background: url(../img/00288718-04.jpg) no-repeat center center/cover;}
+.tabs .tabContent .gallery ul li:nth-child(3){background: url(../img/00291619-04.jpg) no-repeat center center/cover;}
+.content3{padding: 10px;}
+.content3 ul{display: flex; justify-content: space-between;}
+.content3 ul li{width: 120px; height:180px; background: #fff; text-align: center; padding: 20px 0; position: relative; overflow: hidden;}
+.content3 ul li a{font-size: 12px;}
+.content3 ul li a img{width: 110px; } 
+.content3 ul li span{display: inline-block; margin-top: 10px;font-size: 12px;}
+.content3 ul li em{position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: rgba(0,0,0,.5); transition: .5s; pointer-events: none;}
+.content3 ul li:hover em{left:0}
+.content3 ul li:hover span{color: #f00}
+
+.pop{width: 100%; height: 100vh; position: absolute; background: rgba(0,0,0,.3); top: 0; left: 0; z-index: 999999999; display: none;}
+.popwrap{ width: 500px; height: 500px; padding: 50px; top: 50%; left: 50%; position: absolute; transform: translate(-50%, -50%); background: #fff;}
+.popwrap h1{margin-bottom: 50px;}
+.popwrap p{line-height: 180%; margin-bottom: 80px;}
+.popwrap button{width: 100%; height: 50px; border: none; }
+
+.footerWrap{display: flex; justify-content: space-between;}
+.copyright{margin-top: 40px; width:70%}
+.copyright address{font-style: normal; font-size: 12px; color: #666}
+.sns{margin-top: 40px;}
+.sns ul{display: flex;}
+.sns ul li{ width: 50px; height: 30px; overflow: hidden; background: url(../img/social_icon.png) no-repeat 0 0/100%; margin-left: 10px;}
+.sns ul li.twitter{background-position: 0 -60px;}
+.sns ul li.facebook{background-position: 0 -30px;}
+.sns ul li.youtube{background-position: 0 -87px;}

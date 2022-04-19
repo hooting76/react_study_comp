@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상위컴포넌트와 하위컴포넌트</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- 리액트 환경 -->
+    <script src="./lib/react.min.js" crossorigin></script>
+    <script src="./lib/react-dom.production.min.js" crossorigin></script>
+    <!-- jsx문법 사용을 위한 바벨 -->
+    <script src="./lib/babel.min.js"></script>
+</head>
+<body>
+    
+    <div id="root"></div>
+
+    <script type="text/babel">
+        'use strict'; // 자바스크립트를 엄격한 모드로 설정하고 사용
+
+
+        //최상위 컴포넌트(부모 컴포넌트)
+       class Wrap extends React.Component {
+           render() {
+               return (
+                    <div id="wrap">
+                        <Header title='Header Component'/>
+                        <Main title='Main Component' />
+                        <Footer title='Footer Component' />
+                    </div>
+               )
+           }
+       }
+
+            //하위 컴포넌트(자식 컴포넌트)
+            class Header extends React.Component {
+                render() {
+                    return(
+                        <header id="header"  style={styleSection}>
+                            <h2 style={style}>{this.props.title}</h2>
+                        </header>
+                    )
+                }
+            }
+
+            class Main extends React.Component {
+                render() {
+                    return(
+                        <main id="main"  style={styleSection}>
+                            <h2 style={style}>{this.props.title}</h2>
+                            <Section1 title='Section1 Component'/>
+                            <Section2 title='Section2 Component' />
+                            <Section3 title='Section3 Component' />  
+                        </main>
+                    )
+                }
+            }
+
+                
+                class Section1 extends React.Component {
+                    render() {
+                        return (
+                            <section id='section1' style={styleSection}>
+                                <h2 style={style}>{this.props.title}</h2>
+
+                            </section>
+                        );
+                    }
+                }
+                class Section2 extends React.Component {
+                    render() {
+                        return (
+                            <section id='section2' style={styleSection}>
+                                <h2 style={style}>{this.props.title}</h2>
+                            </section>
+                        );
+                    }
+                }
+                class Section3 extends React.Component {
+                    render() {
+                        return (
+                            <section id='section3' style={styleSection}>
+                                <h2 style={style}>{this.props.title}</h2>
+                            </section>
+                        );
+                    }
+                }
+
+
+            class Footer extends React.Component {
+                render() {
+                    return(
+                        <footer id="footer" style={styleSection}>
+                            <h2 style={style}>{this.props.title}</h2>
+                        </footer>
+                    )
+                }
+            }
+
+            const styleSection={
+                background: '#ddeeee',
+                borderBottom: '1px solid #ccc'
+            }
+            const style ={
+                padding: '200px',
+                textAlign: 'center',
+                fontSize: '50px',
+                color:'#c66'
+            }
+       ReactDOM.render(
+           <Wrap />,
+           document.getElementById('root')
+       );
+    </script>
+    
+</body>
+</html>

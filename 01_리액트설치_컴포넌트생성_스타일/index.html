@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리액트 설치 및 클래스형컴포넌트</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- 리액트 환경 -->
+    <script src="./lib/react.min.js" crossorigin></script>
+    <script src="./lib/react-dom.production.min.js" crossorigin></script>
+    <!-- jsx문법 사용을 위한 바벨 -->
+    <script src="./lib/babel.min.js"></script>
+</head>
+<body>
+    <!--  1. html 돔 컨테이너 -->
+    <div id="root"></div>
+    <div id="app"></div>
+    <div id="app1"></div>
+    <!--  2. 리액트 컴포넌트 생성 -->
+    <script type="text/babel">      
+        class Section1 extends React.Component {
+            render() {
+                return (
+                    <section id="section1" style={{width:'100%', height: '100vh', display:'flex', background:'#f7f7f7'  }}>
+                        <h2 style={{margin:'auto', fontSize:'70px', color:'#39c'}}>{this.props.title}</h2>
+                        <h3 style={{margin:'auto', fontSize:'50px', color:'#000'}}>{this.props.name}</h3>
+                    </section>
+                );
+            }
+        }
+
+        class Section2 extends React.Component {
+            //정적 변수
+            static defaultProps = { //속성이 많을경우 객체로 만들어서 사용하면 편리
+                title: '민정아 잘가~~~',
+                name : 'jeehyun',
+                kor : 90,
+                eng : 50,
+                mat : 60
+            }
+
+            render() {
+                let {title, name, kor, eng, mat} = this.props;// 구조분할할당
+                return (
+                    <section id="section2" style={{width:'100%', height: '100vh', display:'flex', background:'#3d0'}}>
+                        <h2 style={{margin:'auto', fontSize:'70px', color:'#39c'}}>{title}</h2>
+                        <h3 style={{margin:'auto', fontSize:'50px', color:'#ddd'}}>{name}</h3>
+                        <h3 style={{margin:'auto', fontSize:'30px', color:'#ddd'}}>{kor}</h3>
+                        <h3 style={{margin:'auto', fontSize:'30px', color:'#ddd'}}>{eng}</h3>
+                        <h3 style={{margin:'auto', fontSize:'30px', color:'#ddd'}}>{mat}</h3>
+                    </section>
+                );
+            }
+        }
+
+        class Section3 extends React.Component {
+            render() {
+                const {title, name, tel, email} =this.props;
+                return (
+                    <section id="section3" style={sect3Style}>
+                        <h2 style={sect3Styleh2}>{title}</h2>
+                        <h3 style={sect3Styleh3}>{name}</h3>
+                        <h3 style={sect3Styleh3}>{tel}</h3>
+                        <h3 style={sect3Styleh3}>{email}</h3>
+                    </section>
+                )
+            }
+        }
+
+        Section3.defaultProps ={
+            title : 'SECTION3 COMPONENT TITLE',
+            name : '지현',
+            tel : '010-4494-9814',
+            email: 'cjh7652@hanmail.net'
+        }
+
+        const sect3Style = {
+            width: '100%',
+            height: '100vh',
+            display: 'flex',
+            background:'#f7f7f7'
+        }
+
+        const sect3Styleh2 ={
+            margin: 'auto',
+            fontSize : '30px',
+            color: '#c39'
+        }
+        const sect3Styleh3 ={
+            margin: 'auto',
+            fontSize : '20px',
+            color: '#000'
+        }
+
+
+        /*   3. 리액트 돔 연결 */
+        ReactDOM.render(
+            <Section1 title='어서 오세요~~~~' name='조지현'/>,
+            document.getElementById('root')
+        );
+
+        ReactDOM.render(
+            <Section2 />,
+            document.querySelector('#app')
+        );
+
+        ReactDOM.render(
+            <Section3 />,
+            document.querySelector('#app1')
+        )
+
+    </script>
+    
+</body>
+</html>
