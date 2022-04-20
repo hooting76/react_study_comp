@@ -1,6 +1,28 @@
 (() => {
     const MemberComponent = (props) => {
 
+        //axios 엑시오스
+        //외부데이터 data (비동기 처리방식 사용) 폴더안에 있는 me,ber.json data를 axios를 이용 배열 저장 상태관리
+        // useState() 훅(hook) , useEffect()
+        // 반드시 화살표함수(람다함수) 를 사용한다. 
+        
+        const [addr,setAddr] = React.useState([]);
+
+        React.useEffect(()=>{
+            
+        const axiosResult = axios.get('./data/member.json')
+        .then((Response)=>{
+            // console.log('성공')
+            return(
+                console.log(Response.data.주소록)
+            )
+        }).catch((Error) =>{
+            console.log('error')
+        })
+
+        // console.log( addr );
+        },[]);
+
         return(
             <div>
                 <h1 style={style.h1}>{props.title}</h1>
@@ -15,7 +37,7 @@
             // console.log(item);
 
             return(
-            <tr key="index">
+            <tr>
                 <td>{index+1}</td>
                 <td>{item.이름}</td>
                 <td>{item.거주지}</td>
