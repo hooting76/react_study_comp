@@ -14,7 +14,8 @@
         .then((Response)=>{
             // console.log('성공')
             return(
-                console.log(Response.data.주소록)
+                // console.log(Response.data.주소록)
+                setAddr([...Response.data.주소록])
             )
         }).catch((Error) =>{
             console.log('error')
