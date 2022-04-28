@@ -19,6 +19,7 @@
                     this.section4();
                      this.scrollTopBtn();
                 },
+                
                 header: function(){
                     let newScr=$(window).scrollTop(); // 현재 스크롤값
                     let oldScr=newScr; //이전 스크롤값
