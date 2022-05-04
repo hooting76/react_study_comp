@@ -1,0 +1,14 @@
+*{box-sizing: border-box;}
+h1{color: #fceec8; text-align: center;}
+
+
+#forms{}
+#forms input{width: 100%; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px;}
+#forms button{width: 100%; padding: 10px; border: none; margin-bottom: 10px; background: #405aeb; color: #fff;}
+
+.movie{display: flex; border: 1px solid #ccc; padding: 10px; align-items: center; margin-bottom: 10px;}
+.movie .movie-title{flex-grow: 1;}
+.movie .movie-year{font-size: .8rem; color: #f00;}
+
+.deleteButton{background: #405aeb; color: #fff; padding: 10px 20px;}
+
